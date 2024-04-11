@@ -14,3 +14,10 @@ jobs:
           authors: jacogr, TarikGul
           labels: -auto
           token: ${{ secrets.GH_PAT_BOT }}
+          
+ name: Enable Auto-merge
+  uses: peter-evans/enable-pull-request-automerge@v1
+  with:
+    token: ${{ secrets.GH_PAT_BOT }}
+    pull-request-number: ${{ github.event.pull_request.number }}
+    merge-method: squash
